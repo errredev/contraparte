@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Trigger Webhook</title>
+    <script>
+        function sendRequest() {
+            fetch('https://invincible-unmarred-shake.glitch.me/webhook', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ command: '/holamundo' })
+            })
+            .then(response => response.text())
+            .then(data => {
+                console.log('Success:', data);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+        
+        window.onload = sendRequest;
+    </script>
+</head>
+<body>
+    <h1>Triggering Webhook...</h1>
+</body>
+</html>
